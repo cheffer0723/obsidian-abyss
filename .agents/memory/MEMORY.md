@@ -1,0 +1,1 @@
+- [Screenshot tool vs. animations](screenshot-tool-animations.md) — app_preview screenshots restart animations each call; init animated text non-blank, don't trust a blank capture.

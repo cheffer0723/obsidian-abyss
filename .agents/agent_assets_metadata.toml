@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "gWH5o5r_bpeYDMWTuYLaN"
+uri = "file://artifacts/obsidian-abyss/src/assets/hero-bg.png"
+type = "image"
+title = "glow blue monoliths in abyss"
