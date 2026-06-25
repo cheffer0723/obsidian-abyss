@@ -1,24 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Obsidian Abyss</title>
-    <meta name="description" content="Obsidian Abyss — built on Replit. Update this description to reflect the app." />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Obsidian Abyss" />
-    <meta property="og:description" content="Obsidian Abyss — built on Replit. Update this description to reflect the app." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Obsidian Abyss" />
-    <meta name="twitter:description" content="Obsidian Abyss — built on Replit. Update this description to reflect the app." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Abyss - Market Research Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">OBSIDIAN ABYSS</div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#pricing">Pricing</a>
+                <button class="cta-btn">Get Access</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Read the Regime<br><span class="highlight">Then Prove It</span></h1>
+            <p>Descend into market clarity. Cerberus reads regime patterns. Backtest against 20 years of real data. Non-custodial. Transparent. Pure signal.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">EXPLORE THE ABYSS</button>
+                <button class="btn-secondary">LEARN MORE</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="cards-section">
+        <h2>EXPLORE THE ABYSS</h2>
+        <p class="section-subtitle">Six depths of market research</p>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🧭</div>
+                <h3>Charon</h3>
+                <p>Your guide through the unknown. Research framing without bias.</p>
+                <a href="#" class="card-link">Explore →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Cerberus</h3>
+                <p>Three-headed regime detector. Live signals. Validated patterns.</p>
+                <a href="#" class="card-link">Activate →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌊</div>
+                <h3>Flow</h3>
+                <p>Ask → Read → Test → Decide. You own every decision.</p>
+                <a href="#" class="card-link">Begin →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔐</div>
+                <h3>Non-Custodial</h3>
+                <p>Your keys. Your capital. Complete autonomy.</p>
+                <a href="#" class="card-link">Verify →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Backtest</h3>
+                <p>20 years of real data. See wins and losses.</p>
+                <a href="#" class="card-link">Test →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">✨</div>
+                <h3>Access</h3>
+                <p>$9.99/month. Everything included. No surprises.</p>
+                <a href="#" class="card-link">Subscribe →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="stats-section">
+        <h2>BUILT ON DEPTH</h2>
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Research Engines</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Market Pairs</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">~20yr</div>
+                <div class="stat-label">Verified Data</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Custody Risk</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <h2>ONE PRICE</h2>
+        <p>Everything. No hidden tiers. No surprises.</p>
+        <div class="price-display">
+            <div class="price-number">$9.99</div>
+            <div class="price-period">per month</div>
+        </div>
+        <button class="btn-primary">DESCEND DEEPER</button>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <h3>Research Platform</h3>
+                <p>Live signals, real-time validation, multi-engine analysis</p>
+            </div>
+            <div class="feature-box">
+                <h3>Backtesting Lab</h3>
+                <p>20 years verified data, walk-forward validation</p>
+            </div>
+            <div class="feature-box">
+                <h3>Research Companion</h3>
+                <p>Charon advisor, market insights, strategy guidance</p>
+            </div>
+            <div class="feature-box">
+                <h3>Complete Access</h3>
+                <p>No paywalls, API access, data export, priority support</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Obsidian Abyss. Nothing here is financial advice.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
