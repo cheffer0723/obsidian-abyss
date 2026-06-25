@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { DecodeText } from "../ui/decode-text";
 import { useRef } from "react";
-import heroBg from "@/assets/hero-bg.png";
+import heroBg from "@assets/IMG_0527_1782431182875.png";
 import { scrollToSection } from "@/lib/scroll-to";
 
 export function Hero() {
@@ -23,16 +23,16 @@ export function Hero() {
         className="absolute inset-0 z-0"
       >
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.16]"
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-[0.7]"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#010309]/60 via-[#010309]/85 to-[#010309]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#010309]/40 via-[#010309]/20 to-[#010309]" />
         
         {/* Glow overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,200,255,0.04),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,200,255,0.04),transparent_65%)]" />
 
         {/* Vignette for deep abyss darkness */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#010309_95%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,#010309_92%)]" />
         
         {/* Noise overlay */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
@@ -46,12 +46,12 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="mb-8 overflow-hidden"
         >
-          <p className="text-primary text-xs md:text-sm font-medium tracking-[0.3em] uppercase max-w-2xl">
+          <p className="font-tech text-primary/70 text-[10px] md:text-xs tracking-[0.3em] uppercase max-w-2xl">
             Fear keeps you from the truth. The Abyss forces you to confront it.
           </p>
         </motion.div>
 
-        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-black text-white tracking-[0.12em] leading-none whitespace-nowrap mb-10 drop-shadow-[0_0_25px_rgba(0,200,255,0.25)] pl-[0.12em]">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-headline text-white tracking-[0.04em] leading-none whitespace-nowrap mb-10 drop-shadow-[0_0_25px_rgba(0,200,255,0.25)] pl-[0.04em]">
           <DecodeText text="BEAR WITNESS" delay={600} duration={1800} />
         </h1>
 

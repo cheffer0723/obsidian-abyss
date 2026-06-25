@@ -1,4 +1,5 @@
 import { DecodeText } from "../ui/decode-text";
+import cubeIcon from "@/assets/cube-icon.png";
 
 export function Footer() {
   return (
@@ -6,9 +7,16 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-16">
           <div>
-            <h2 className="text-2xl md:text-3xl font-display font-bold text-white tracking-widest mb-4">
-              <DecodeText text="OBSIDIAN ABYSS" />
-            </h2>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src={cubeIcon}
+                alt="Obsidian Abyss mark"
+                className="w-8 h-8 object-contain drop-shadow-[0_0_12px_rgba(168,85,247,0.6)]"
+              />
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-white tracking-widest">
+                <DecodeText text="OBSIDIAN ABYSS" />
+              </h2>
+            </div>
             <p className="text-white/40 text-sm max-w-sm">
               Fear keeps you from the truth. The Abyss forces you to confront it.
             </p>
