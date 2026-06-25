@@ -4,7 +4,7 @@ import { DecodeText } from "../ui/decode-text";
 
 export function Pricing() {
   return (
-    <section id="access" className="scroll-mt-24 py-32 bg-[#020A19] relative flex flex-col items-center justify-center">
+    <section id="access" className="scroll-mt-24 py-32 bg-[#010309] relative flex flex-col items-center justify-center">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen" />
       </div>
@@ -22,7 +22,7 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-md mx-auto bg-[#01050D] border border-primary/30 p-10 relative overflow-hidden"
+          className="max-w-md mx-auto bg-[#000206] border border-primary/30 p-10 relative overflow-hidden"
         >
           {/* Neon Top Bar */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-primary shadow-[0_0_20px_#00ffff]" />
@@ -53,7 +53,7 @@ export function Pricing() {
 
           <a
             href="mailto:access@obsidianabyss.io?subject=Requesting%20Access%20to%20Obsidian%20Abyss"
-            className="block w-full py-4 text-center bg-primary text-[#020A19] font-bold tracking-[0.2em] uppercase text-sm hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_40px_rgba(0,255,255,0.5)]"
+            className="block w-full py-4 text-center bg-primary text-[#010309] font-bold tracking-[0.2em] uppercase text-sm hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_40px_rgba(0,255,255,0.5)]"
           >
             Enter the Abyss
           </a>

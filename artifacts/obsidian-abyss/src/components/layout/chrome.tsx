@@ -116,7 +116,7 @@ export function Chrome() {
             </button>
             <button
               onClick={() => scrollToSection("access")}
-              className="px-5 py-2 text-xs font-bold tracking-widest text-[#020A19] bg-primary hover:bg-white transition-colors uppercase shadow-[0_0_20px_rgba(0,255,255,0.4)]"
+              className="px-5 py-2 text-xs font-bold tracking-widest text-[#010309] bg-primary hover:bg-white transition-colors uppercase shadow-[0_0_20px_rgba(0,255,255,0.4)]"
             >
               Get Access
             </button>
@@ -155,7 +155,7 @@ export function Chrome() {
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              className="bg-[#020A19]/95 backdrop-blur-xl border border-primary/20 w-80 mb-4 shadow-[0_0_30px_rgba(0,255,255,0.1)] flex flex-col overflow-hidden"
+              className="bg-[#010309]/95 backdrop-blur-xl border border-primary/20 w-80 mb-4 shadow-[0_0_30px_rgba(0,255,255,0.1)] flex flex-col overflow-hidden"
               data-testid="chat-widget-popover"
             >
               <div className="flex items-center justify-between p-4 border-b border-primary/20 bg-primary/5">
@@ -202,7 +202,7 @@ export function Chrome() {
           aria-label={isChatOpen ? "Close research companion" : "Open research companion"}
           aria-expanded={isChatOpen}
           className={`p-4 rounded-none border border-primary/30 shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-all duration-300 ${
-            isChatOpen ? 'bg-primary text-[#020A19]' : 'bg-[#020A19] text-primary hover:bg-primary/10'
+            isChatOpen ? 'bg-primary text-[#010309]' : 'bg-[#010309] text-primary hover:bg-primary/10'
           }`}
           data-testid="button-chat-toggle"
         >

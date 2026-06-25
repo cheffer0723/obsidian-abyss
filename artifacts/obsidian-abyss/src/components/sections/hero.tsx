@@ -16,20 +16,23 @@ export function Hero() {
   const blur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(10px)"]);
 
   return (
-    <section ref={containerRef} className="relative h-[100dvh] w-full overflow-hidden bg-[#020A19] flex flex-col justify-center items-center">
+    <section ref={containerRef} className="relative h-[100dvh] w-full overflow-hidden bg-[#010309] flex flex-col justify-center items-center">
       {/* Background Image & Effects */}
       <motion.div 
         style={{ y, opacity, filter: blur }}
         className="absolute inset-0 z-0"
       >
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.16]"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020A19]/20 via-[#020A19]/60 to-[#020A19]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#010309]/60 via-[#010309]/85 to-[#010309]" />
         
         {/* Glow overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,255,0.15),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,200,255,0.04),transparent_60%)]" />
+
+        {/* Vignette for deep abyss darkness */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#010309_95%)]" />
         
         {/* Noise overlay */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
@@ -48,8 +51,8 @@ export function Hero() {
           </p>
         </motion.div>
 
-        <h1 className="text-5xl md:text-6xl lg:text-[7rem] font-display font-bold text-white tracking-[0.2em] leading-tight mb-10 drop-shadow-[0_0_30px_rgba(0,255,255,0.3)] pl-[0.2em]">
-          <DecodeText text="BEAR WITNESS" delay={1000} duration={1500} />
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-black text-white tracking-[0.12em] leading-none whitespace-nowrap mb-10 drop-shadow-[0_0_25px_rgba(0,200,255,0.25)] pl-[0.12em]">
+          <DecodeText text="BEAR WITNESS" delay={600} duration={1800} />
         </h1>
 
         <motion.p
@@ -69,7 +72,7 @@ export function Hero() {
         >
           <button
             onClick={() => scrollToSection("platform")}
-            className="px-8 py-4 bg-primary text-[#020A19] font-bold tracking-[0.2em] uppercase text-sm hover:bg-white transition-all shadow-[0_0_30px_rgba(0,255,255,0.3)] hover:shadow-[0_0_50px_rgba(0,255,255,0.6)]"
+            className="px-8 py-4 bg-primary text-[#010309] font-bold tracking-[0.2em] uppercase text-sm hover:bg-white transition-all shadow-[0_0_30px_rgba(0,255,255,0.3)] hover:shadow-[0_0_50px_rgba(0,255,255,0.6)]"
           >
             Explore the Abyss
           </button>

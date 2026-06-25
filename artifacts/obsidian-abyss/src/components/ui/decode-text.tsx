@@ -2,11 +2,16 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+=-_";
+const SCRAMBLE_INTERVAL = 55;
 
-function scramble(text: string) {
+function scramble(text: string, revealCount = 0) {
   return text
     .split("")
-    .map((char) => (char === " " ? " " : CHARS[Math.floor(Math.random() * CHARS.length)]))
+    .map((char, i) => {
+      if (char === " ") return " ";
+      if (i < revealCount) return text[i];
+      return CHARS[Math.floor(Math.random() * CHARS.length)];
+    })
     .join("");
 }
 
@@ -34,33 +39,28 @@ export function DecodeText({
     }
 
     let startTime: number;
+    let lastScramble = -Infinity;
     let animationFrame: number;
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
 
-      if (elapsed < delay) {
-        setDisplayText(scramble(text));
-        animationFrame = requestAnimationFrame(animate);
-        return;
+      let revealCount = 0;
+      if (elapsed > delay) {
+        const progress = Math.min((elapsed - delay) / duration, 1);
+        // easeOutCubic for a smooth, decelerating reveal
+        const eased = 1 - Math.pow(1 - progress, 3);
+        revealCount = Math.round(eased * text.length);
       }
 
-      const progress = Math.min((elapsed - delay) / duration, 1);
-      const charsToReveal = Math.floor(progress * text.length);
+      // Throttle the random scramble so it reads as smooth rather than twitchy
+      if (timestamp - lastScramble >= SCRAMBLE_INTERVAL || revealCount >= text.length) {
+        lastScramble = timestamp;
+        setDisplayText(scramble(text, revealCount));
+      }
 
-      setDisplayText(
-        text
-          .split("")
-          .map((char, index) => {
-            if (char === " ") return " ";
-            if (index < charsToReveal) return text[index];
-            return CHARS[Math.floor(Math.random() * CHARS.length)];
-          })
-          .join("")
-      );
-
-      if (progress < 1) {
+      if (elapsed < delay + duration) {
         animationFrame = requestAnimationFrame(animate);
       } else {
         setDisplayText(text);

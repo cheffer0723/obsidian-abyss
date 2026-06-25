@@ -2,7 +2,7 @@ import { DecodeText } from "../ui/decode-text";
 
 export function Footer() {
   return (
-    <footer className="bg-[#01050D] pt-24 pb-12 border-t border-white/5 relative z-10">
+    <footer className="bg-[#000206] pt-24 pb-12 border-t border-white/5 relative z-10">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-16">
           <div>

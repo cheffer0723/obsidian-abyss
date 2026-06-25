@@ -48,7 +48,7 @@ function AnimatedCounter({ value, label }: { value: number | string; label: stri
 
 export function Stats() {
   return (
-    <section id="metrics" className="scroll-mt-24 py-24 bg-[#01050D] relative border-y border-white/5 overflow-hidden">
+    <section id="metrics" className="scroll-mt-24 py-24 bg-[#000206] relative border-y border-white/5 overflow-hidden">
       {/* Background network effect */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" 
            style={{ 

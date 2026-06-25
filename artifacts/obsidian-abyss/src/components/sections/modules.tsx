@@ -49,7 +49,7 @@ const modules = [
 
 export function Modules() {
   return (
-    <section id="platform" className="scroll-mt-24 py-32 bg-[#020A19] relative z-10">
+    <section id="platform" className="scroll-mt-24 py-32 bg-[#010309] relative z-10">
       <div className="container mx-auto px-6">
         <div className="mb-20 text-center md:text-left">
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">

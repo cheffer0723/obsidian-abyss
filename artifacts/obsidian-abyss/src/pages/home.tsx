@@ -6,7 +6,7 @@ import { Footer } from "@/components/sections/footer";
 
 export function Home() {
   return (
-    <main className="bg-[#020A19] min-h-screen text-white">
+    <main className="bg-[#010309] min-h-screen text-white">
       <Hero />
       <Modules />
       <Stats />
