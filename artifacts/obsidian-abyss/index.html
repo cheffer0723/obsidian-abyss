@@ -1,139 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obsidian Abyss - Market Research Platform</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsidian Abyss — Market Research Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 </head>
-<body>
-    <canvas id="particleCanvas"></canvas>
+<body class="no-js">
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">OBSIDIAN ABYSS</div>
-            <button class="hamburger" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#pricing">Pricing</a>
-                <button class="cta-btn">Get Access</button>
-            </div>
-        </div>
-    </nav>
+  <!-- Canvas background -->
+  <canvas id="bg-canvas"></canvas>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Read the Regime<br><span class="highlight">Then Prove It</span></h1>
-            <p>Descend into market clarity. Cerberus reads regime patterns. Backtest against 20 years of real data. Non-custodial. Transparent. Pure signal.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary">EXPLORE THE ABYSS</button>
-                <button class="btn-secondary">LEARN MORE</button>
-            </div>
+  <!-- ── Navbar ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">OBSIDIAN<br><span>ABYSS</span></a>
+      <ul class="nav-links">
+        <li><a href="#charon" data-nav>Charon</a></li>
+        <li><a href="#cerberus" data-nav>Cerberus</a></li>
+        <li><a href="#flow" data-nav>Flow</a></li>
+        <li><a href="#pricing" data-nav>Pricing</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="btn-ghost" href="#pricing">Log in</a>
+        <a class="btn-pill" href="#pricing">Get Access</a>
+      </div>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu">
+      <a href="#charon">Charon</a>
+      <a href="#cerberus">Cerberus</a>
+      <a href="#flow">Flow</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#pricing" class="btn-pill">Get Access</a>
+    </div>
+  </nav>
+
+  <!-- ── Sidebar ── -->
+  <aside id="sidebar">
+    <div class="sidebar-track">
+      <a class="sidebar-item active" href="#hero" data-section="hero">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Overview</span>
+      </a>
+      <a class="sidebar-item" href="#charon" data-section="charon">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Charon</span>
+      </a>
+      <a class="sidebar-item" href="#cerberus" data-section="cerberus">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Cerberus</span>
+      </a>
+      <a class="sidebar-item" href="#flow" data-section="flow">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Flow</span>
+      </a>
+      <a class="sidebar-item" href="#non-custodial" data-section="non-custodial">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Non-Custodial</span>
+      </a>
+      <a class="sidebar-item" href="#backtest" data-section="backtest">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Backtest</span>
+      </a>
+      <a class="sidebar-item" href="#access" data-section="access">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Access</span>
+      </a>
+      <a class="sidebar-item" href="#stats" data-section="stats">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Stats</span>
+      </a>
+      <a class="sidebar-item" href="#pricing" data-section="pricing">
+        <span class="sb-dot"></span>
+        <span class="sb-label">Pricing</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ── Main content ── -->
+  <main id="main">
+
+    <!-- Hero -->
+    <section id="hero" class="section-hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow reveal-line">Fear Keeps You From The Truth.<br>The Abyss Forces You To Confront It.</p>
+        <h1 class="hero-headline reveal-chars">BEAR<br>WITNESS</h1>
+        <p class="hero-sub reveal-fade">Descend into market clarity. Cerberus reads regime patterns.<br>Backtest against 20 years of real data. Non-custodial. Pure signal.</p>
+        <div class="hero-cta reveal-fade">
+          <a class="btn-pill large" href="#cerberus">Explore the Abyss</a>
+          <a class="btn-ghost large" href="#charon">Learn More</a>
         </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
     </section>
 
-    <section id="features" class="cards-section">
-        <h2>EXPLORE THE ABYSS</h2>
-        <p class="section-subtitle">Six depths of market research</p>
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">🧭</div>
-                <h3>Charon</h3>
-                <p>Your guide through the unknown. Research framing without bias.</p>
-                <a href="#" class="card-link">Explore →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon">⚙️</div>
-                <h3>Cerberus</h3>
-                <p>Three-headed regime detector. Live signals. Validated patterns.</p>
-                <a href="#" class="card-link">Activate →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon">🌊</div>
-                <h3>Flow</h3>
-                <p>Ask → Read → Test → Decide. You own every decision.</p>
-                <a href="#" class="card-link">Begin →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon">🔐</div>
-                <h3>Non-Custodial</h3>
-                <p>Your keys. Your capital. Complete autonomy.</p>
-                <a href="#" class="card-link">Verify →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon">📊</div>
-                <h3>Backtest</h3>
-                <p>20 years of real data. See wins and losses.</p>
-                <a href="#" class="card-link">Test →</a>
-            </div>
-            <div class="card">
-                <div class="card-icon">✨</div>
-                <h3>Access</h3>
-                <p>$9.99/month. Everything included. No surprises.</p>
-                <a href="#" class="card-link">Subscribe →</a>
-            </div>
+    <!-- Charon -->
+    <section id="charon" class="section-feature">
+      <div class="feature-inner">
+        <div class="feature-label reveal-fade">01 — Guide</div>
+        <h2 class="feature-title reveal-chars">Charon</h2>
+        <p class="feature-body reveal-fade">Your guide through the unknown. Research framing without bias. Charon navigates you through market ambiguity so every question leads to signal, not noise.</p>
+        <div class="feature-tags reveal-fade">
+          <span class="tag">Unbiased framing</span>
+          <span class="tag">Signal over noise</span>
+          <span class="tag">Research clarity</span>
         </div>
+        <a class="btn-outline reveal-fade" href="#pricing">Explore →</a>
+      </div>
+      <div class="feature-visual reveal-scale">
+        <div class="vis-box">
+          <div class="vis-line"></div>
+          <div class="vis-line"></div>
+          <div class="vis-line"></div>
+          <span class="vis-label">Charon</span>
+        </div>
+      </div>
     </section>
 
-    <section id="about" class="stats-section">
-        <h2>BUILT ON DEPTH</h2>
-        <div class="stats-grid">
-            <div class="stat">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Research Engines</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">7</div>
-                <div class="stat-label">Market Pairs</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">~20yr</div>
-                <div class="stat-label">Verified Data</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">0</div>
-                <div class="stat-label">Custody Risk</div>
-            </div>
+    <!-- Cerberus -->
+    <section id="cerberus" class="section-feature alt">
+      <div class="feature-visual reveal-scale">
+        <div class="vis-box cerberus-box">
+          <div class="regime-row"><span class="regime-dot bull"></span><span>Bull</span><div class="regime-bar" style="--w:78%"></div></div>
+          <div class="regime-row"><span class="regime-dot bear"></span><span>Bear</span><div class="regime-bar" style="--w:14%"></div></div>
+          <div class="regime-row"><span class="regime-dot side"></span><span>Sideways</span><div class="regime-bar" style="--w:8%"></div></div>
+          <span class="vis-label">Regime Signal</span>
         </div>
+      </div>
+      <div class="feature-inner">
+        <div class="feature-label reveal-fade">02 — Detection</div>
+        <h2 class="feature-title reveal-chars">Cerberus</h2>
+        <p class="feature-body reveal-fade">Three-headed regime detector. Live signals. Validated patterns. Cerberus watches three simultaneous market conditions and fires when all heads align.</p>
+        <div class="feature-tags reveal-fade">
+          <span class="tag">Live signals</span>
+          <span class="tag">3-state detection</span>
+          <span class="tag">Validated patterns</span>
+        </div>
+        <a class="btn-outline reveal-fade" href="#pricing">Activate →</a>
+      </div>
     </section>
 
-    <section id="pricing" class="pricing-section">
-        <h2>ONE PRICE</h2>
-        <p>Everything. No hidden tiers. No surprises.</p>
-        <div class="price-display">
-            <div class="price-number">$9.99</div>
-            <div class="price-period">per month</div>
+    <!-- Flow -->
+    <section id="flow" class="section-feature">
+      <div class="feature-inner">
+        <div class="feature-label reveal-fade">03 — Process</div>
+        <h2 class="feature-title reveal-chars">Flow</h2>
+        <p class="feature-body reveal-fade">Ask → Read → Test → Decide. You own every decision. Flow is the research methodology that turns raw market data into clear, executable insight.</p>
+        <div class="flow-steps reveal-fade">
+          <div class="flow-step"><span class="step-num">01</span><span>Ask</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="step-num">02</span><span>Read</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="step-num">03</span><span>Test</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="step-num">04</span><span>Decide</span></div>
         </div>
-        <button class="btn-primary">DESCEND DEEPER</button>
-
-        <div class="features-grid">
-            <div class="feature-box">
-                <h3>Research Platform</h3>
-                <p>Live signals, real-time validation, multi-engine analysis</p>
-            </div>
-            <div class="feature-box">
-                <h3>Backtesting Lab</h3>
-                <p>20 years verified data, walk-forward validation</p>
-            </div>
-            <div class="feature-box">
-                <h3>Research Companion</h3>
-                <p>Charon advisor, market insights, strategy guidance</p>
-            </div>
-            <div class="feature-box">
-                <h3>Complete Access</h3>
-                <p>No paywalls, API access, data export, priority support</p>
-            </div>
+        <a class="btn-outline reveal-fade" href="#pricing">Begin →</a>
+      </div>
+      <div class="feature-visual reveal-scale">
+        <div class="vis-box flow-box">
+          <div class="flow-vis-item">Ask</div>
+          <div class="flow-vis-item">Read</div>
+          <div class="flow-vis-item">Test</div>
+          <div class="flow-vis-item active">Decide</div>
         </div>
+      </div>
     </section>
 
-    <footer>
-        <p>© 2026 Obsidian Abyss. Nothing here is financial advice.</p>
-    </footer>
+    <!-- Non-Custodial -->
+    <section id="non-custodial" class="section-feature alt">
+      <div class="feature-visual reveal-scale">
+        <div class="vis-box key-box">
+          <div class="key-icon">🔐</div>
+          <p class="key-text">Your Keys.<br>Your Capital.</p>
+          <div class="key-badge">0 Custody Risk</div>
+        </div>
+      </div>
+      <div class="feature-inner">
+        <div class="feature-label reveal-fade">04 — Autonomy</div>
+        <h2 class="feature-title reveal-chars">Non-Custodial</h2>
+        <p class="feature-body reveal-fade">Your keys. Your capital. Complete autonomy. We never touch your assets. Everything runs on your terms, your hardware, your sovereignty.</p>
+        <div class="feature-tags reveal-fade">
+          <span class="tag">Self-custody</span>
+          <span class="tag">Zero counterparty risk</span>
+          <span class="tag">Full sovereignty</span>
+        </div>
+        <a class="btn-outline reveal-fade" href="#pricing">Verify →</a>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Backtest -->
+    <section id="backtest" class="section-feature">
+      <div class="feature-inner">
+        <div class="feature-label reveal-fade">05 — Validation</div>
+        <h2 class="feature-title reveal-chars">Backtest</h2>
+        <p class="feature-body reveal-fade">20 years of real data. See every win. See every loss. Walk-forward validation built in — no cherry-picking, no survivorship bias, no illusions.</p>
+        <div class="feature-tags reveal-fade">
+          <span class="tag">~20yr data</span>
+          <span class="tag">Walk-forward</span>
+          <span class="tag">No survivorship bias</span>
+        </div>
+        <a class="btn-outline reveal-fade" href="#pricing">Test →</a>
+      </div>
+      <div class="feature-visual reveal-scale">
+        <div class="vis-box backtest-box">
+          <div class="bt-chart">
+            <div class="bt-bar" style="--h:40%;--c:#6496ff"></div>
+            <div class="bt-bar" style="--h:65%;--c:#6496ff"></div>
+            <div class="bt-bar" style="--h:30%;--c:#ff6464"></div>
+            <div class="bt-bar" style="--h:80%;--c:#6496ff"></div>
+            <div class="bt-bar" style="--h:55%;--c:#6496ff"></div>
+            <div class="bt-bar" style="--h:20%;--c:#ff6464"></div>
+            <div class="bt-bar" style="--h:90%;--c:#6496ff"></div>
+            <div class="bt-bar" style="--h:70%;--c:#6496ff"></div>
+          </div>
+          <span class="vis-label">~20yr Backtest</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access -->
+    <section id="access" class="section-feature alt">
+      <div class="feature-visual reveal-scale">
+        <div class="vis-box access-box">
+          <div class="price-tag">$9.99<small>/mo</small></div>
+          <ul class="access-list">
+            <li>✓ All research engines</li>
+            <li>✓ Live Cerberus signals</li>
+            <li>✓ Full backtest lab</li>
+            <li>✓ Priority support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="feature-inner">
+        <div class="feature-label reveal-fade">06 — Entry</div>
+        <h2 class="feature-title reveal-chars">Access</h2>
+        <p class="feature-body reveal-fade">$9.99/month. Everything included. No hidden tiers. No paywalled features. No surprises. One price opens the full depth of the Abyss.</p>
+        <div class="feature-tags reveal-fade">
+          <span class="tag">Full platform</span>
+          <span class="tag">API access</span>
+          <span class="tag">Data export</span>
+        </div>
+        <a class="btn-pill reveal-fade" href="#pricing">Subscribe →</a>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section id="stats" class="section-stats">
+      <div class="stats-header reveal-fade">
+        <h2 class="section-title reveal-chars">Built on Depth</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card reveal-fade">
+          <div class="stat-number" data-target="3">0</div>
+          <div class="stat-label">Research Engines</div>
+          <div class="stat-desc">Charon, Cerberus, Flow — each purpose-built</div>
+        </div>
+        <div class="stat-card reveal-fade">
+          <div class="stat-number" data-target="7">0</div>
+          <div class="stat-label">Market Pairs</div>
+          <div class="stat-desc">Across major crypto and macro instruments</div>
+        </div>
+        <div class="stat-card reveal-fade">
+          <div class="stat-number" data-string="~20yr">0</div>
+          <div class="stat-label">Verified Data</div>
+          <div class="stat-desc">Walk-forward validated, no cherry-picking</div>
+        </div>
+        <div class="stat-card reveal-fade">
+          <div class="stat-number" data-target="0">—</div>
+          <div class="stat-label">Custody Risk</div>
+          <div class="stat-desc">Non-custodial by design, always</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section-pricing">
+      <div class="pricing-header">
+        <p class="feature-label reveal-fade">One Price. Everything.</p>
+        <h2 class="section-title reveal-chars">No Hidden Tiers.<br>No Surprises.</h2>
+      </div>
+      <div class="pricing-card reveal-scale">
+        <div class="pc-left">
+          <div class="pc-price">
+            <span class="pc-currency">$</span>
+            <span class="pc-amount">9.99</span>
+            <span class="pc-period">/ month</span>
+          </div>
+          <p class="pc-tagline">Everything. Included.</p>
+          <a class="btn-pill large" href="#">Descend Deeper</a>
+        </div>
+        <div class="pc-right">
+          <div class="pc-feature">
+            <div class="pc-f-title">Research Platform</div>
+            <div class="pc-f-desc">Live signals, real-time validation, multi-engine analysis</div>
+          </div>
+          <div class="pc-feature">
+            <div class="pc-f-title">Backtesting Lab</div>
+            <div class="pc-f-desc">~20 years verified data, walk-forward validation</div>
+          </div>
+          <div class="pc-feature">
+            <div class="pc-f-title">Research Companion</div>
+            <div class="pc-f-desc">Charon advisor, market insights, strategy guidance</div>
+          </div>
+          <div class="pc-feature">
+            <div class="pc-f-title">Complete Access</div>
+            <div class="pc-f-desc">No paywalls, API access, data export, priority support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">OBSIDIAN ABYSS</span>
+      <span class="footer-legal">© 2026 Obsidian Abyss. Nothing here is financial advice.</span>
+      <div class="footer-links">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Audio toggle -->
+  <button id="audio-toggle" class="fixed-btn" aria-label="Toggle sound">
+    <svg id="icon-sound-on" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    </svg>
+    <svg id="icon-sound-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>
+    </svg>
+  </button>
+
+  <!-- Chat widget -->
+  <button id="chat-widget" class="fixed-btn" aria-label="Open chat">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span class="chat-badge">1</span>
+  </button>
+
+  <!-- Chat popup -->
+  <div id="chat-popup">
+    <div class="cp-header">
+      <span>Research Companion</span>
+      <button id="chat-close">×</button>
+    </div>
+    <div class="cp-body">
+      <div class="cp-msg bot">Welcome to the Abyss. What regime are you navigating?</div>
+    </div>
+    <div class="cp-input-row">
+      <input type="text" id="chat-input" placeholder="Ask the Abyss...">
+      <button id="chat-send">→</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

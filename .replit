@@ -9,28 +9,6 @@ args = ["pnpm", "store", "prune"]
 env = { "CI" = "true" }
 
 [workflows]
-runButton = "Project"
-
-[[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Obsidian Abyss"
-
-[[workflows.workflow]]
-name = "Obsidian Abyss"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "webview"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "PORT=19846 BASE_PATH=/ pnpm --filter @workspace/obsidian-abyss run dev"
-waitForPort = 19846
 
 [agent]
 stack = "PNPM_WORKSPACE"
