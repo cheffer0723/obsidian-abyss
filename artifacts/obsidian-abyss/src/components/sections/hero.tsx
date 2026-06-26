@@ -1,11 +1,36 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { DecodeText } from "../ui/decode-text";
-import { useRef } from "react";
+import { Component, lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import heroBg from "@assets/IMG_0527_1782431182875.png";
 import { scrollToSection } from "@/lib/scroll-to";
 
+const HeroAbyssScene = lazy(() => import("../effects/hero-abyss-scene"));
+
+function supportsWebGL(): boolean {
+  try {
+    const c = document.createElement("canvas");
+    return !!(c.getContext("webgl2") || c.getContext("webgl"));
+  } catch {
+    return false;
+  }
+}
+
+// If the WebGL scene throws at runtime (lost context, driver fault), render
+// nothing so the PNG background underneath remains the fallback.
+class SceneErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  render() {
+    return this.state.failed ? null : this.props.children;
+  }
+}
+
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const [use3D, setUse3D] = useState(false);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -15,6 +40,18 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const blur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(10px)"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.82]);
+
+  // Progressive enhancement: start with the PNG, upgrade to WebGL only when the
+  // device can handle it (not reduced-motion, not coarse-pointer/small, has WebGL).
+  useEffect(() => {
+    if (reduced) {
+      setUse3D(false);
+      return;
+    }
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    const small = window.innerWidth < 768;
+    setUse3D(!coarse && !small && supportsWebGL());
+  }, [reduced]);
 
   return (
     <section ref={containerRef} className="relative h-[100dvh] w-full overflow-hidden bg-[#010309] flex flex-col justify-center items-center">
@@ -27,6 +64,22 @@ export function Hero() {
           className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-[0.7]"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
+
+        {/* WebGL abyss — fades in over the PNG once loaded; PNG stays as fallback */}
+        {use3D && (
+          <SceneErrorBoundary>
+            <Suspense fallback={null}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.4 }}
+                className="absolute inset-0 pointer-events-none"
+              >
+                <HeroAbyssScene />
+              </motion.div>
+            </Suspense>
+          </SceneErrorBoundary>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[40%] via-[#010309]/95 via-[56%] to-[#010309]" />
         
         {/* Glow overlay */}

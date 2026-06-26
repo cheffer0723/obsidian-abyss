@@ -1,4 +1,5 @@
 - [Screenshotting below-the-fold sections](screenshot-below-fold.md) — obsidian-abyss hero is min-h-screen + scroll-locking intro; how to actually capture lower sections.
 - [SVG gradient IDs need useId()](svg-gradient-ids-useid.md) — visuals render twice (mobile+desktop) so hard-coded gradient ids collide; use useId() prefix.
+- [three.js / R3F setup](three-webgl-setup.md) — three r185 needs @types/three (typecheck fails otherwise); install per-workspace; WebGL hero is progressive-enhancement over PNG.
 - [x402 positioning vs live wiring](x402-positioning.md) — front-end not wired to live Railway backend; keep x402 copy capability/illustrative ("private beta") until actually connected.
 - [Stack section is a map](stack-section-is-a-map.md) — obsidian-abyss #stack is a thin nav map; every item is detailed elsewhere, so do not re-explain (avoid dup).

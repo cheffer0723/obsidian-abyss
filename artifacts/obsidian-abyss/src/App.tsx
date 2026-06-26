@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import { Home } from "@/pages/home";
 import { Chrome } from "@/components/layout/chrome";
 import { IntroReveal } from "@/components/ui/intro-reveal";
+import { AbyssAtmosphere } from "@/components/effects/abyss-atmosphere";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ function App() {
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <IntroReveal />
+          <AbyssAtmosphere />
           <Chrome />
           <Router />
         </WouterRouter>
