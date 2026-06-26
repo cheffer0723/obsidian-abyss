@@ -22,6 +22,11 @@ function markIntroSeen() {
 export function IntroReveal() {
   const [visible, setVisible] = useState(() => {
     if (typeof window === "undefined") return false;
+    if (
+      import.meta.env.DEV &&
+      new URLSearchParams(window.location.search).has("nointro")
+    )
+      return false;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
     return !hasSeenIntro();
   });
