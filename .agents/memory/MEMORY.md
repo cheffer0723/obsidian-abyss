@@ -1,1 +1,2 @@
-- [Screenshot tool vs. animations](screenshot-tool-animations.md) — app_preview screenshots restart animations each call; init animated text non-blank, don't trust a blank capture.
+- [Full-bleed headline centering](full-bleed-headline-centering.md) — a w-screen child inside a flex items-center centered container is already viewport-centered; adding relative left-1/2 -translate-x-1/2 double-offsets and mis-centers on viewports wider than the container max-width.
+- [Screenshot vs. time-delayed animations](screenshot-tool-animations.md) — app_preview opens a fresh session each call, so on-load decode/intro overlays are caught mid-flight; use a query-param skip hatch (e.g. ?nointro) to verify the page beneath.

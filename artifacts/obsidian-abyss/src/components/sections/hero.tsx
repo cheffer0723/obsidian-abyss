@@ -55,7 +55,7 @@ export function Hero() {
           </p>
         </motion.div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-headline text-white tracking-[0.04em] leading-none whitespace-nowrap mb-10 [filter:drop-shadow(0_0_25px_rgba(0,200,255,0.2))_drop-shadow(0_0_45px_rgba(168,85,247,0.16))] pl-[0.04em]">
+        <h1 className="font-display font-extrabold text-white text-[9.3vw] leading-none whitespace-nowrap tracking-[0.15em] w-screen max-w-none text-center mb-10 [filter:drop-shadow(0_0_25px_rgba(0,200,255,0.2))_drop-shadow(0_0_45px_rgba(168,85,247,0.16))] pl-[0.15em]">
           <DecodeText text="BEAR WITNESS" delay={600} duration={1800} />
         </h1>
 
