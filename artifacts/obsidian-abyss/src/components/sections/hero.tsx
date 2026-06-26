@@ -65,7 +65,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 2.5 }}
           className="font-tech text-white/50 text-[10px] md:text-xs max-w-2xl mx-auto mb-16 tracking-[0.25em] uppercase leading-loose"
         >
-          Descend into market clarity. Regime detection, 20 years of backtested data, non-custodial by design. Pure signal. No comfort.
+          Descend into market clarity. Regime detection, 20 years of backtested data, non-custodial by design. Signal for humans and the agents they deploy. No comfort.
         </motion.p>
 
         <motion.div

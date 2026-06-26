@@ -100,6 +100,13 @@ export function Chrome() {
               METRICS
             </a>
             <a
+              href="#agents"
+              onClick={(e) => { e.preventDefault(); scrollToSection("agents"); }}
+              className="hover:text-primary transition-colors"
+            >
+              AGENTS
+            </a>
+            <a
               href="#access"
               onClick={(e) => { e.preventDefault(); scrollToSection("access"); }}
               className="hover:text-primary transition-colors"

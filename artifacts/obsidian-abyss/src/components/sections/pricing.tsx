@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { DecodeText } from "../ui/decode-text";
+import { scrollToSection } from "@/lib/scroll-to";
 
 export function Pricing() {
   return (
@@ -65,6 +66,16 @@ export function Pricing() {
             Enter the Abyss
           </a>
         </motion.div>
+
+        <p className="mt-8 text-center font-mono text-[10px] tracking-[0.2em] uppercase text-white/35">
+          Deploying an agent?{" "}
+          <button
+            onClick={() => scrollToSection("agents")}
+            className="text-primary/70 hover:text-primary transition-colors underline-offset-4 hover:underline"
+          >
+            It pays per call via x402
+          </button>
+        </p>
       </div>
     </section>
   );
