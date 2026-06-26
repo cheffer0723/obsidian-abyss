@@ -10,12 +10,12 @@ import { Footer } from "@/components/sections/footer";
 export function Home() {
   return (
     <main className="bg-[#010309] min-h-screen text-white">
-      <Agents />
       <Hero />
       <LiveEngine />
       <Modules />
       <Stats />
       <MiroFish />
+      <Agents />
       <Pricing />
       <Footer />
     </main>

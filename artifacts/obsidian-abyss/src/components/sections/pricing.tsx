@@ -73,7 +73,7 @@ export function Pricing() {
             onClick={() => scrollToSection("agents")}
             className="text-primary/70 hover:text-primary transition-colors underline-offset-4 hover:underline"
           >
-            It pays per call via x402
+            It can pay per call via x402
           </button>
         </p>
       </div>

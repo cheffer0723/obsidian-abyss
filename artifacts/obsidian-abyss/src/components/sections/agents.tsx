@@ -74,7 +74,11 @@ const FEATURES = [
 
 function Handshake() {
   return (
-    <div className="relative border border-primary/20 bg-[#000206] overflow-hidden shadow-[0_0_60px_rgba(0,200,255,0.06)]">
+    <div
+      role="img"
+      aria-label="Illustrative x402 payment handshake: an agent request returns HTTP 402 Payment Required, the agent pays in USDC on Base, retries, and receives the regime signal."
+      className="relative border border-primary/20 bg-[#000206] overflow-hidden shadow-[0_0_60px_rgba(0,200,255,0.06)]"
+    >
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
       <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 bg-white/[0.02]">
@@ -88,8 +92,8 @@ function Handshake() {
             x402 — payment handshake
           </span>
         </div>
-        <span className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.25em] text-primary/90">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        <span className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.25em] text-amber-400/90">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-400/80" />
           402
         </span>
       </div>
@@ -104,6 +108,10 @@ function Handshake() {
             ))}
           </div>
         ))}
+      </div>
+
+      <div className="border-t border-white/10 px-5 py-2.5 font-mono text-[10px] tracking-[0.18em] uppercase text-white/30">
+        // illustrative — example endpoint, price &amp; address
       </div>
 
       <div className="absolute top-0 left-0 w-2 h-[1px] bg-primary/50" />
@@ -145,11 +153,11 @@ export function Agents() {
               place.
             </p>
             <p className="text-white/55 text-sm md:text-base leading-relaxed mb-10 max-w-xl">
-              Every signal is exposed over <span className="text-white/80">x402</span>, the open
-              payment protocol built on HTTP 402. An autonomous agent requests a read, is quoted
-              a price, settles it in USDC on Base wallet-to-wallet, and retries — all in one
-              breath, no human in the loop. You hand over no keys, no account, no custody. The
-              machine transacts; the truth comes back the same.
+              Obsidian Abyss is built to speak <span className="text-white/80">x402</span> — the
+              open payment protocol on HTTP 402 — so every signal can be priced and paid for by
+              machine. An autonomous agent requests a read, is quoted a price, settles it in USDC
+              on Base wallet-to-wallet, and retries — no human in the loop. No keys handed over, no
+              account, no custody. The machine transacts; the truth comes back the same.
             </p>
 
             <div className="lg:hidden mb-10">
@@ -180,7 +188,7 @@ export function Agents() {
                 Request API Access
               </button>
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/35">
-                x402 · USDC on Base
+                x402 access · private beta
               </span>
             </div>
           </div>

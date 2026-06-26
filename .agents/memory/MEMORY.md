@@ -1,2 +1,3 @@
 - [Screenshotting below-the-fold sections](screenshot-below-fold.md) — obsidian-abyss hero is min-h-screen + scroll-locking intro; how to actually capture lower sections.
 - [SVG gradient IDs need useId()](svg-gradient-ids-useid.md) — visuals render twice (mobile+desktop) so hard-coded gradient ids collide; use useId() prefix.
+- [x402 positioning vs live wiring](x402-positioning.md) — front-end not wired to live Railway backend; keep x402 copy capability/illustrative ("private beta") until actually connected.
