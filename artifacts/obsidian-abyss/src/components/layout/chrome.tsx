@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Volume2, VolumeX, MessageSquare, X, Send } from "lucide-react";
 import { scrollToSection } from "@/lib/scroll-to";
+import cubeIcon from "@/assets/cube-icon.png";
 
 export function Chrome() {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -79,7 +80,12 @@ export function Chrome() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-6 mix-blend-difference"
       >
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 md:w-6 md:h-6 bg-primary rounded-sm shadow-[0_0_15px_rgba(0,255,255,0.8)]" />
+          <img
+            src={cubeIcon}
+            alt=""
+            aria-hidden="true"
+            className="w-7 h-7 md:w-8 md:h-8 object-contain drop-shadow-[0_0_10px_rgba(168,85,247,0.7)]"
+          />
           <span className="font-display font-bold tracking-widest md:tracking-[0.2em] text-lg md:text-2xl text-white md:whitespace-nowrap">OBSIDIAN ABYSS</span>
         </div>
         
