@@ -59,7 +59,7 @@ export function Pricing() {
           </div>
 
           <a
-            href="mailto:access@obsidianabyss.io?subject=Requesting%20Access%20to%20Obsidian%20Abyss"
+            href="mailto:contact@obsidianabyss.com?subject=Requesting%20Access%20to%20Obsidian%20Abyss"
             className="block w-full py-4 text-center bg-primary text-[#010309] font-bold tracking-[0.2em] uppercase text-sm hover:bg-white transition-all shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_40px_rgba(0,255,255,0.5)]"
           >
             Enter the Abyss
