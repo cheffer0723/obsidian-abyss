@@ -1,0 +1,316 @@
+PROJECT: OBSIDIAN ABYSS NEW SITE (Replit) - PRODUCTION READY
+REPO/PROJECT: obsidian-abyss-new.replit.app
+TARGET: Keep the new design aesthetic. Add back the interactive backtest panel.
+        Integrate six distinct cards section. Wire to Railway backend. Deploy.
+
+================================================================================
+PART 1: BACKTEST PANEL INTEGRATION (CRITICAL)
+================================================================================
+
+LOCATION: After the "// CERBERUS — REGIME ENGINE" section, before "// THE ARSENAL"
+
+WHAT TO ADD:
+  - The interactive backtest panel from obsidianabyss.com
+  - Engine selector (Orthrus / Hydra / Sisyphus tabs)
+  - Market selector (SPY / QQQ / NVDA / GLD / IWM / TLT / BTC tabs)
+  - Equity curve chart (strategy vs buy & hold)
+  - Metrics display: Total Return, CAGR, Worst Drawdown, Volatility, Sharpe, Sortino, 
+                     Calmar, Profit Factor, Time in Market, Trade Count
+  - Data source: Fetch from Railway API /backtests/engines endpoint
+
+STYLING (MATCH NEW SITE AESTHETIC):
+  - Keep dark background (no white cards)
+  - Use accent color (#00C9FF or current) for active tabs
+  - Typography: Space Grotesk (or current font from new site)
+  - Add section heading above: "// LIVE PROOF" with encrypted overlay
+  - Plain-text reveal: "PROOF ON REAL DATA"
+  - Subtext: "20 years. Three engines. Losses shown."
+
+DATA ENDPOINT:
+  URL: https://obsidianabyss-api-production.up.railway.app/backtests/engines
+  (Or use the static file if Railway is down: /data/backtests/engines.json)
+  
+  Store in state, render tabs on engine/market selection.
+
+CHART LIBRARY:
+  - Use Chart.js or Recharts (whichever is already in the project)
+  - Render equity curve as line chart
+  - Legend: "Strategy" (accent color) vs "Buy & Hold" (gray)
+
+================================================================================
+PART 2: SIX DISTINCT CARDS SECTION (NEW)
+================================================================================
+
+LOCATION: After backtest panel, before "// THE ARSENAL"
+
+STRUCTURE: Three groups, visually distinct
+
+GROUP A: "PROOF" (1 card, full-width)
+  Heading: "LIVE PROOF"
+  Subheading: "Interactive Backtesting"
+  Description: "Three engines tested on ~20 years of real data, net of fees. 
+               Pick an engine and market — see the results live. We show losses 
+               as plainly as gains. No cherry-picked wins."
+  Visual Treatment:
+    - Background: Darker accent (rgba(0, 150, 200, 0.1) or similar)
+    - Left border: 3px solid #00C9FF (accent color)
+    - Padding: 2rem
+    - Icon: Chart icon (SVG, 24x24)
+  CTA: "EXPLORE BACKTEST ABOVE" (anchor to backtest section)
+
+GROUP B: "PLATFORM" (3 cards: Cerberus, Charon, Flow)
+  
+  Card 1: CERBERUS
+    Heading: "CERBERUS"
+    Subheading: "The Regime Engine"
+    Description: "Reads the market's regime — Bull, Bear, or Sideways. 
+                 Three heads, one verdict. Walk-forward validated."
+    Visual: Minimal border outline (1px #333333), no background
+    CTA: "READ MORE"
+    Link: href="#platform"
+  
+  Card 2: CHARON
+    Heading: "CHARON"
+    Subheading: "The Advisor"
+    Description: "Ferries you across the unfamiliar. Suggests which engine 
+                 fits your regime — then steps back. Research framing, never advice."
+    Visual: Same as Cerberus
+    CTA: "MEET CHARON"
+    Link: Opens chat/advisor modal (if available)
+  
+  Card 3: FLOW
+    Heading: "FLOW"
+    Subheading: "The Method"
+    Description: "Ask. Read. Test. Decide. A loop that always ends in your judgment, 
+                 never ours. Non-custodial, no execution, no promises."
+    Visual: Same as Cerberus
+    CTA: "THE FLOW"
+    Link: href="#platform"
+
+GROUP C: "PREMIUM & INTEGRATION" (2 cards: MiroFish, x402)
+  
+  Card 4: MIROFISH
+    Heading: "MIROFISH"
+    Subheading: "Scenario Simulation"
+    Description: "Spawn 10,000 autonomous agents in a synthetic market. Test your thesis 
+                 under a distribution of outcomes, not a single comforting prediction."
+    Visual: Right-side accent bar (3px #00C9FF), no left border
+    CTA: "REQUEST EARLY ACCESS"
+    Link: href="mailto:contact@obsidianabyss.com?subject=MiroFish%20Access"
+  
+  Card 5: x402 API
+    Heading: "x402"
+    Subheading: "Machine-Payable Access"
+    Description: "Agents request signals, settle payment in USDC on Base wallet-to-wallet, 
+                 and get regime data back. No accounts, no keys, no custody."
+    Visual: Right-side accent bar (same as MiroFish)
+    CTA: "REQUEST API ACCESS"
+    Link: href="mailto:contact@obsidianabyss.com?subject=x402%20Access"
+
+CARD LAYOUT:
+  Desktop:
+    - GROUP A: Full width (1 col)
+    - GROUP B: 3 cols (equal width)
+    - GROUP C: 2 cols (equal width, centered if needed)
+  
+  Mobile (<768px):
+    - All groups: 1 col, stacked vertically
+
+CARD STYLING:
+  GROUP A (Proof):
+    Background: rgba(0, 150, 200, 0.08)
+    Border: 2px solid #00C9FF on LEFT
+    Padding: 2rem
+    Min-Height: 180px
+    Heading: 24px, bold, all-caps, Space Grotesk
+    Description: 16px, line-height 1.6
+  
+  GROUP B & C (Standard):
+    Background: transparent
+    Border: 1px solid #333333
+    Padding: 1.5rem
+    Min-Height: 160px
+    Hover: Border → #00C9FF, background → rgba(0, 150, 200, 0.05)
+    Heading: 20px, bold, all-caps
+    Subheading: 12px, uppercase, letter-spacing 0.1em, color #999999
+    Description: 14px, line-height 1.5
+    Transition: all 0.3s ease
+
+SPACING:
+  Between groups: 3rem
+  Between cards (within group): 1.5rem
+  Section top/bottom padding: 3rem
+
+================================================================================
+PART 3: INTEGRATE WITH EXISTING NEW SITE SECTIONS
+================================================================================
+
+KEEP AS-IS:
+  - Hero section ("Fear keeps you from the truth...")
+  - Regime ticker (SPY BULL / QQQ BULL scrolling)
+  - "// THE ARSENAL" section (Cerberus explanation, three-headed engine visual)
+  - MiroFish section (expand with card above if needed)
+  - x402 section (expand with card above if needed)
+  - Pricing section ($9.99/mo)
+  - Footer
+
+REORDER STRUCTURE:
+  Hero
+    ↓
+  Regime Ticker (live data carousel)
+    ↓
+  "// CERBERUS — REGIME ENGINE" section
+    ↓
+  [NEW] BACKTEST PANEL (interactive, full-width)
+    ↓
+  [NEW] SIX CARDS (proof + platform + premium)
+    ↓
+  "// THE ARSENAL" section (visual explanations)
+    ↓
+  Existing MiroFish section
+    ↓
+  Existing x402 section
+    ↓
+  Pricing
+    ↓
+  Footer
+
+================================================================================
+PART 4: TYPOGRAPHY & FONTS (MAINTAIN NEW SITE)
+================================================================================
+
+PRIMARY FONT: Current font from new site (appears to be Inter or Space Grotesk)
+  - Do NOT change. Keep consistency with hero/existing sections.
+
+HEADINGS:
+  H2 (Section titles): Current size + weight (no change)
+  H3 (Card headings): 20px, bold, all-caps, letter-spacing 0.05em
+  H4 (Subheadings): 12px, uppercase, letter-spacing 0.1em, color #999999
+
+BODY TEXT:
+  Paragraph: 16px, line-height 1.6, color #CCCCCC or current secondary
+  Small: 14px, line-height 1.5
+
+CTA LINKS:
+  Style: Inherit color from card, add arrow (→)
+  Hover: Arrow slides right 4px, smooth 0.3s transition
+
+================================================================================
+PART 5: ANIMATIONS (NEW TO ADD)
+================================================================================
+
+BACKTEST PANEL:
+  - Fade in on scroll into viewport (0 → 1 opacity, 0.6s)
+  - No additional motion (keep stable for user focus)
+
+SIX CARDS:
+  - Fade in on scroll (0 → 1 opacity)
+  - Stagger: 100ms delay between cards
+  - Slight upward motion on entry (translateY +30px → 0, easing out)
+  - Hover: Border color shifts to accent, background tints
+
+LIBRARY:
+  - Use existing animation system from new site (Framer Motion? CSS transitions?)
+  - If neither exists, add simple CSS @keyframes for fade-in
+
+================================================================================
+PART 6: BACKEND INTEGRATION
+================================================================================
+
+BACKTEST ENDPOINT:
+  Fetch: GET https://obsidianabyss-api-production.up.railway.app/backtests/engines
+  
+  Fallback: If Railway is down, serve static file from /data/backtests/engines.json
+  
+  Response Schema:
+    {
+      "engines": {
+        "orthrus": { "markets": { "SPY": { "totalReturn": 453.5, "maxDrawdown": -21.2, ... } } },
+        "hydra": { ... },
+        "sisyphus": { ... }
+      }
+    }
+  
+  Render: Tabs for each engine, subtabs for each market. Display metrics on selection.
+
+CONTACT EMAILS (in card CTAs):
+  - MiroFish: mailto:contact@obsidianabyss.com?subject=MiroFish%20Access
+  - x402: mailto:contact@obsidianabyss.com?subject=x402%20Access
+  - (Or wire to a form endpoint if available)
+
+================================================================================
+PART 7: RESPONSIVE DESIGN
+================================================================================
+
+BREAKPOINTS:
+  Mobile: < 768px (1 col cards)
+  Tablet: 768px–1024px (2 cols for GROUP B, 1 col for GROUP C)
+  Desktop: > 1024px (3 cols GROUP B, 2 cols GROUP C)
+
+TESTING:
+  ✓ 375px (iPhone SE) — all cards readable, chart scales down
+  ✓ 768px (iPad) — 2-col layout, proper spacing
+  ✓ 1024px+ — full 3-col/2-col layout
+
+BACKTEST CHART:
+  - Responsive: Adjust width/height based on container
+  - Touch-friendly: Ensure tabs/selectors have adequate padding (48px min touch target)
+
+================================================================================
+PART 8: NO-BREAK RULES & TESTING
+================================================================================
+
+DO NOT BREAK:
+  ✓ Existing hero section
+  ✓ Regime ticker animation
+  ✓ Sound toggle (top-right)
+  ✓ Chat/advisor widget (if present)
+  ✓ Footer links
+  ✓ Navigation (Log in, Get Access buttons)
+
+MUST TEST BEFORE PUSH:
+  ✓ Backtest panel loads data from Railway API (or fallback static file)
+  ✓ Engine tabs toggle (Orthrus ↔ Hydra ↔ Sisyphus)
+  ✓ Market tabs toggle (SPY ↔ QQQ ↔ NVDA, etc.)
+  ✓ Chart renders correctly for each selection
+  ✓ All 5 card links work (CTAs open mailto: or anchors)
+  ✓ Scroll animations trigger smoothly (no jank)
+  ✓ Mobile responsive (test 375px, 768px, 1200px)
+  ✓ No console errors
+  ✓ Page loads in < 3s (test network throttle)
+
+================================================================================
+PART 9: DEPLOYMENT
+================================================================================
+
+PLATFORM: Replit
+URL AFTER: obsidian-abyss-new.replit.app (auto-deploys on save)
+
+BACKUP: Old site stays live at obsidianabyss.com (no changes)
+
+FINAL STATE:
+  - New Replit site: Full functionality + beautiful design ✓
+  - Old GitHub site: Unchanged as backup ✓
+  - Railway API: Still serves backtest data to both ✓
+
+================================================================================
+SUMMARY FOR YOU
+================================================================================
+
+WHAT REPLIT NEEDS TO BUILD:
+  1. Backtest panel (engine/market tabs + chart + metrics) — wire to Railway API
+  2. Six cards section (proof + platform + premium) — distinct visual styling
+  3. Integrate both into existing new site structure
+  4. Add scroll animations (fade-in + stagger)
+  5. Test all interactions + responsive layout
+  6. Deploy
+
+WHAT STAYS UNTOUCHED:
+  - Hero, regime ticker, arsenal sections
+  - MiroFish, x402, pricing (existing)
+  - Sound, navigation, footer
+
+TIMELINE: 6–8 hours
+COST: Should fit in remaining Replit budget (one focused session)
+
+================================================================================
