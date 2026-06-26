@@ -55,7 +55,7 @@ export function Modules() {
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
             <DecodeText text="THE ARSENAL" />
           </h2>
-          <div className="h-[1px] w-full bg-gradient-to-r from-primary/50 to-transparent max-w-3xl" />
+          <div className="h-[1px] w-full bg-gradient-to-r from-primary/50 via-[rgba(168,85,247,0.45)] to-transparent max-w-3xl" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

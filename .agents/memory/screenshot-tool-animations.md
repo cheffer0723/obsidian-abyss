@@ -21,3 +21,14 @@ rendered empty spaces.
 - To confirm final state, reason from the animation code (does progress reach 1 and lock the final
   value?) rather than relying on a single screenshot. Add `prefers-reduced-motion` handling that
   jumps straight to the resolved text for accessibility + deterministic capture.
+
+# Full-screen intro/overlay reveals block hero screenshots
+
+A short on-load intro overlay (e.g. a ~1.7s + fade "Entering the Abyss" curtain) plays from frame
+zero on every fresh screenshot session, so the tool reliably captures the *overlay* instead of the
+page beneath it — retrying lands on the same frame, not progress.
+
+**How to apply:** give the overlay component a query-param escape hatch (e.g. skip when
+`window.location.search.includes("nointro")`) so you can screenshot `/?nointro` to verify the page
+underneath, then remove the hatch afterward. A `sessionStorage` once-per-session guard does NOT help
+the screenshot tool because each capture is a brand-new session with empty storage.

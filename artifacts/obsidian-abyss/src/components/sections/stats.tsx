@@ -58,12 +58,18 @@ export function Stats() {
       />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8"
+        >
           <AnimatedCounter value={3} label="Research Engines" />
           <AnimatedCounter value={7} label="Market Pairs" />
           <AnimatedCounter value="~20" label="Years Verified Data" />
           <AnimatedCounter value={0} label="Custody Risk" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -7,15 +7,22 @@ export function Pricing() {
     <section id="access" className="scroll-mt-24 py-32 bg-[#010309] relative flex flex-col items-center justify-center">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-[rgba(168,85,247,0.08)] rounded-full blur-[120px] mix-blend-screen" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center mb-16"
+        >
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
             <DecodeText text="THE COST OF TRUTH" />
           </h2>
           <p className="text-white/60 text-lg">One price. Complete access. No illusions.</p>
-        </div>
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, y: 50, scale: 0.95 }}

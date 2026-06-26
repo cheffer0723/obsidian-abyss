@@ -14,22 +14,26 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const blur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(10px)"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.82]);
 
   return (
     <section ref={containerRef} className="relative h-[100dvh] w-full overflow-hidden bg-[#010309] flex flex-col justify-center items-center">
       {/* Background Image & Effects */}
       <motion.div 
-        style={{ y, opacity, filter: blur }}
+        style={{ y, opacity, filter: blur, scale }}
         className="absolute inset-0 z-0"
       >
         <div 
           className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-[0.7]"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#010309]/40 via-[#010309]/20 to-[#010309]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[40%] via-[#010309]/95 via-[56%] to-[#010309]" />
         
         {/* Glow overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,200,255,0.04),transparent_65%)]" />
+
+        {/* Violet accent glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,rgba(168,85,247,0.06),transparent_55%)]" />
 
         {/* Vignette for deep abyss darkness */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,#010309_92%)]" />
@@ -51,7 +55,7 @@ export function Hero() {
           </p>
         </motion.div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-headline text-white tracking-[0.04em] leading-none whitespace-nowrap mb-10 drop-shadow-[0_0_25px_rgba(0,200,255,0.25)] pl-[0.04em]">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-headline text-white tracking-[0.04em] leading-none whitespace-nowrap mb-10 [filter:drop-shadow(0_0_25px_rgba(0,200,255,0.2))_drop-shadow(0_0_45px_rgba(168,85,247,0.16))] pl-[0.04em]">
           <DecodeText text="BEAR WITNESS" delay={600} duration={1800} />
         </h1>
 
@@ -59,7 +63,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2.5 }}
-          className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-16 font-light tracking-wide leading-relaxed"
+          className="font-tech text-white/50 text-[10px] md:text-xs max-w-2xl mx-auto mb-16 tracking-[0.25em] uppercase leading-loose"
         >
           Descend into market clarity. Regime detection, 20 years of backtested data, non-custodial by design. Pure signal. No comfort.
         </motion.p>
