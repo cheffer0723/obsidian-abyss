@@ -21,6 +21,14 @@ by ~half the container inset and clips asymmetrically despite `overflow-hidden`.
 at 1600px; the architect flagged the redundant transform.
 
 **How to apply:** for a full-bleed line in a flex-centered column, use just
-`w-screen max-w-none text-center`. Size with `vw` (≈9.3vw for a ~12-char uppercase line) and
-keep the final text a little under 100vw so on-load decode/scramble frames with
-variable-width glyphs don't clip at the edges.
+`w-screen max-w-none text-center`. Size with `vw`. Calibration: a ~12-char uppercase
+Montserrat-ExtraBold line at ~9.3vw / 0.15em tracking lands ~86vw (reads visibly *inset*,
+not full-bleed — the earlier "near 100vw" claim was optimistic). To actually touch both
+edges, bump size and/or tracking (e.g. mobile ~9.6vw / 0.2em ≈ ~95vw) and lock the desktop
+value behind `md:` so each breakpoint is tuned independently.
+
+**Scramble caveat:** a `DecodeText` headline's scramble frames are ~the same width as the
+final text (the random charset's average glyph advance ≈ the final text's), so widening for
+full-bleed widens the scramble too — there's no free lunch. Leave ~3vw of side buffer
+(final ≈ 94-95vw, not 100) or the widest scramble frames clip at the edges under
+`overflow-hidden`. Keep `pl-[Xem]` in sync with `tracking-[Xem]` to keep it centered.
