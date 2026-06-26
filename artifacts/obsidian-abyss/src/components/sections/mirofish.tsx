@@ -50,6 +50,8 @@ function MiroFishVisual() {
       y: 40 + r() * 220,
       s: 0.5 + r() * 1.8,
       o: 0.12 + r() * 0.45,
+      dur: 2.2 + r() * 3.4,
+      begin: r() * 3,
     }));
   }, []);
 
@@ -92,7 +94,17 @@ function MiroFishVisual() {
       />
 
       {dots.map((d, i) => (
-        <circle key={i} cx={d.x} cy={d.y} r={d.s} fill="hsl(190 100% 72%)" fillOpacity={d.o} />
+        <circle key={i} cx={d.x} cy={d.y} r={d.s} fill="hsl(190 100% 72%)" fillOpacity={d.o}>
+          {!reduced && (
+            <animate
+              attributeName="fill-opacity"
+              values={`${d.o};${(d.o * 0.22).toFixed(3)};${d.o}`}
+              dur={`${d.dur}s`}
+              begin={`${d.begin}s`}
+              repeatCount="indefinite"
+            />
+          )}
+        </circle>
       ))}
 
       <line
@@ -117,6 +129,7 @@ function MiroFishVisual() {
       {paths.map((p, i) => (
         <motion.path
           key={i}
+          id={`${gid}-p${i}`}
           d={p.d}
           fill="none"
           stroke={Math.abs(p.sp) < 30 ? "hsl(190 100% 60%)" : "hsl(265 90% 70%)"}
@@ -129,19 +142,84 @@ function MiroFishVisual() {
         />
       ))}
 
-      {paths.map((p, i) => (
-        <circle
-          key={`e${i}`}
-          cx={endX}
-          cy={originY + p.sp}
-          r="2"
-          fill="hsl(265 90% 75%)"
-          fillOpacity={Math.max(0.2, p.o)}
-        />
-      ))}
+      {!reduced &&
+        paths.map((p, i) => {
+          const accent = Math.abs(p.sp) < 30 ? "hsl(190 100% 70%)" : "hsl(265 90% 78%)";
+          const dur = 3 + i * 0.22;
+          const begin = i * 0.45;
+          return (
+            <circle key={`fx${i}`} r={Math.abs(p.sp) < 30 ? 2.4 : 1.8} fill={accent}>
+              <animateMotion
+                dur={`${dur}s`}
+                begin={`${begin}s`}
+                repeatCount="indefinite"
+                calcMode="linear"
+                keyPoints="0;1"
+                keyTimes="0;1"
+              >
+                <mpath href={`#${gid}-p${i}`} />
+              </animateMotion>
+              <animate
+                attributeName="opacity"
+                values="0;1;1;0"
+                keyTimes="0;0.12;0.82;1"
+                dur={`${dur}s`}
+                begin={`${begin}s`}
+                repeatCount="indefinite"
+              />
+            </circle>
+          );
+        })}
 
-      <circle cx={originX} cy={originY} r="22" fill={`url(#${gid}-origin)`} />
-      <circle cx={originX} cy={originY} r="4" fill="hsl(190 100% 75%)" />
+      {paths.map((p, i) => {
+        const base = Math.max(0.2, p.o);
+        return (
+          <motion.circle
+            key={`e${i}`}
+            cx={endX}
+            cy={originY + p.sp}
+            r="2"
+            fill="hsl(265 90% 75%)"
+            fillOpacity={base}
+            animate={reduced ? undefined : { fillOpacity: [base, 0.95, base] }}
+            transition={
+              reduced
+                ? undefined
+                : { duration: 2.6, repeat: Infinity, delay: i * 0.3, ease: "easeInOut" }
+            }
+          />
+        );
+      })}
+
+      {!reduced && (
+        <motion.circle
+          cx={originX}
+          cy={originY}
+          fill="none"
+          stroke="hsl(190 100% 60%)"
+          strokeWidth="1"
+          initial={{ r: 6, opacity: 0.5 }}
+          animate={{ r: [6, 28], opacity: [0.5, 0] }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: "easeOut" }}
+        />
+      )}
+      <motion.circle
+        cx={originX}
+        cy={originY}
+        r="22"
+        fill={`url(#${gid}-origin)`}
+        style={{ transformBox: "fill-box", transformOrigin: "center" }}
+        animate={reduced ? undefined : { scale: [1, 1.18, 1], opacity: [0.65, 1, 0.65] }}
+        transition={reduced ? undefined : { duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.circle
+        cx={originX}
+        cy={originY}
+        r="4"
+        fill="hsl(190 100% 75%)"
+        animate={reduced ? undefined : { opacity: [0.75, 1, 0.75] }}
+        transition={reduced ? undefined : { duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+      />
     </svg>
   );
 }
