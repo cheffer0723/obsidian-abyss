@@ -8,6 +8,7 @@ import { Home } from "@/pages/home";
 import { Chrome } from "@/components/layout/chrome";
 import { IntroReveal } from "@/components/ui/intro-reveal";
 import { AbyssAtmosphere } from "@/components/effects/abyss-atmosphere";
+import { DemoAccessProvider } from "@/context/demo-access-context";
 
 const queryClient = new QueryClient();
 
@@ -24,13 +25,15 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <IntroReveal />
-          <AbyssAtmosphere />
-          <Chrome />
-          <Router />
-        </WouterRouter>
-        <Toaster />
+        <DemoAccessProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <IntroReveal />
+            <AbyssAtmosphere />
+            <Chrome />
+            <Router />
+          </WouterRouter>
+          <Toaster />
+        </DemoAccessProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
