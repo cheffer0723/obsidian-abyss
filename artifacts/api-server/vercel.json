@@ -1,16 +1,12 @@
 {
   "version": 2,
   "installCommand": "cd ../.. && pnpm install --no-frozen-lockfile",
-  "builds": [
-    {
-      "src": "src/app.ts",
-      "use": "@vercel/node"
+  "functions": {
+    "src/app.ts": {
+      "runtime": "@vercel/node"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "src/app.ts"
-    }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/src/app.ts" }
   ]
 }
