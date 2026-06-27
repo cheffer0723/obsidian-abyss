@@ -1,8 +1,7 @@
 {
   "version": 2,
   "installCommand": "cd ../.. && pnpm install --no-frozen-lockfile",
-  "buildCommand": "echo 'No build step; serverless functions live in api/'",
-  "outputDirectory": "public",
+  "buildCommand": "",
   "rewrites": [
     { "source": "/(.*)", "destination": "/api" }
   ]
