@@ -159,11 +159,12 @@ export function EmotionUpload() {
       setResult(simulateUpload(count));
       setStatus("done");
     }, 1500);
-  }, [fileName]);
+  }, [fileName, fileReady]);
 
   const reset = useCallback(() => {
     setStatus("idle");
     setFileName(null);
+    setFileReady(false);
     setResult(null);
     setError(null);
     textRef.current = "";
@@ -206,13 +207,22 @@ export function EmotionUpload() {
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
               <label
+                tabIndex={0}
+                role="button"
+                aria-label="Select CSV file"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    inputRef.current?.click();
+                  }
+                }}
                 onDragOver={(e) => {
                   e.preventDefault();
                   setDragging(true);
                 }}
                 onDragLeave={() => setDragging(false)}
                 onDrop={onDrop}
-                className={`flex flex-col items-center justify-center gap-3 border border-dashed p-10 text-center cursor-pointer transition-all ${
+                className={`flex flex-col items-center justify-center gap-3 border border-dashed p-10 text-center cursor-pointer transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/60 ${
                   dragging
                     ? "border-primary/60 bg-primary/[0.04]"
                     : "border-white/15 bg-white/[0.02] hover:bg-white/[0.03]"

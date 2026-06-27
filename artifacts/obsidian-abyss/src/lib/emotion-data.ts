@@ -27,16 +27,6 @@ export const systemSeries: SpyPoint[] = [
 
 export const PRICE_DOMAIN: [number, number] = [396, 424];
 
-export const proofSummary = {
-  symbol: "SPY",
-  window: "June 20-28, 2026",
-  entry: 410.5,
-  traderExit: 405.0,
-  systemExit: 420.0,
-  traderResult: -700,
-  systemResult: 190,
-  gap: 890,
-};
 
 export interface TradeStat {
   label: string;
@@ -145,7 +135,6 @@ export const csvExample = `symbol,entry_date,exit_date,entry_price,exit_price,si
 SPY,2026-06-20,2026-06-24,410.50,405.00,10
 BTC,2026-06-25,2026-07-02,42500,48000,0.5`;
 
-export const DEMO_TRADE_COUNT = 28;
 const EMOTIONAL_PER_TRADE = -145;
 const SYSTEM_PER_TRADE = 189.3;
 
