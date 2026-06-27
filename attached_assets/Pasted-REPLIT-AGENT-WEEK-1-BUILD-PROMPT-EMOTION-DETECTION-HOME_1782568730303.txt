@@ -1,0 +1,225 @@
+REPLIT AGENT WEEK 1 BUILD PROMPT — EMOTION DETECTION HOMEPAGE REDESIGN
+PROJECT: Obsidian Abyss
+TASK: Rebuild homepage to showcase emotion detection product (Week 1 frontend)
+REPO: obsidianabyss-site (GitHub Pages static site)
+TIMELINE: 1 week (due July 7, 2026)
+STATUS: Ready to build immediately
+===== MISSION =====
+Rebuild the Obsidian Abyss homepage to demonstrate the core value prop: “Show traders how much emotion cost them in dollars.” The homepage should prove this works via a real example trade breakdown, then convert visitors into signup via CSV upload. This is the go-to-market proof that emotional trading costs money and the system prevents it.
+===== WHAT TO BUILD (IN ORDER) =====
+SECTION 1: HERO (Replace current hero at top of page)
+Headline: “You Made a Bad Trade Decision You Knew Was Bad. Here’s What It Cost You.”
+Subheadline: “Our regime detection tool predicted it. You ignored it and lost money. We can change that.”
+Visual: Side-by-side chart showing SPY trade (June 20-28, 2026)
+	•	LEFT chart: Trader’s panic exit
+	•	Entry: June 20 @ $410.50
+	•	Exit: June 24 @ $405.00 (red dot, marked PANIC)
+	•	Loss: -$550 + fees = -$700 total
+	•	Shows downward red line from entry to exit
+	•	RIGHT chart: System’s hold
+	•	Entry: June 20 @ $410.50
+	•	Exit: June 28 @ $420.00 (green dot, marked HOLD)
+	•	Gain: +$95 + fees = +$190 total
+	•	Shows upward green line from entry to exit, then slight dip before exit
+	•	Recovery area: Highlight the gap between red exit and green exit (the $890 difference)
+	•	Big callout: “$890 left on the table”
+Use Chart.js or Recharts. Make responsive (stacks on mobile).
+===== SECTION 2: EXAMPLE TRADE BREAKDOWN CARD =====
+Below hero section. Card layout with:
+Title: “SPY | June 20-24, 2026”
+Trade details table:
+Your Entry: $410.50
+Your Exit: $405.00 [PANIC EXIT]
+Your Return: -1.7%
+Your Loss: -$700
+System Entry: $410.50
+System Exit: $420.00 [DISCIPLINED HOLD]
+System Return: +2.4%
+System Gain: +$190
+Cost of emotion: -$890
+Explanation box (3 parts):
+WHY PANIC HAPPENED:
+“Price dipped 3% on June 21. You thought ‘this is going to zero.’ You exited immediately instead of holding per your 200-day MA rule.”
+WHAT SYSTEM WOULD HAVE DONE:
+“Price above 200-day MA = HOLD signal. System held through the dip, caught the recovery.”
+WHAT HAPPENED NEXT:
+“June 25-28: Market recovered 15% total. You watched from cash, helpless. System already cashed out at $420.”
+Add small inline chart showing the dip and recovery between your exit date and system exit date.
+===== SECTION 3: METRICS COMPARISON TABLE =====
+Below example card.
+Table with 4 rows:
+Row 1:
+Metric: Avg Return per Trade
+Emotional Trading: -2.3%
+System Trading: +4.1%
+Advantage: +6.4%
+Row 2:
+Metric: Sharpe Ratio (Risk-Adjusted Return)
+Emotional Trading: 0.42
+System Trading: 1.84
+Advantage: +338%
+Row 3:
+Metric: Max Drawdown (Worst Loss)
+Emotional Trading: -22%
+System Trading: -6%
+Advantage: -73% (less pain)
+Row 4:
+Metric: Win Rate (Regime Prediction Accuracy)
+Emotional Trading: —
+System Trading: 76%
+Advantage: Knowing what’s next
+Below table add copy:
+“These numbers are from real traders who uploaded their trades. Emotional traders left money on the table. System traders made money by KNOWING what was coming next.”
+Make mobile-responsive (scrollable if needed).
+===== SECTION 4: 7-DAY FORECAST WIDGET (MEMBERS-ONLY) =====
+Below metrics table.
+LOGIC: If user is logged in, show the widget. If NOT logged in, show teaser.
+IF LOGGED IN (show this):
+Heading: “Current Market Regime Status”
+Content:
+SPY (S&P 500)
+Status: Orthrus IN — Price above 200-day MA
+Confidence: 89%
+Next 7 days: 78% probability STAYS IN
+QQQ (Nasdaq 100)
+Status: Hydra OUT — 6-month momentum negative
+Confidence: 72%
+Next 7 days: 65% probability STAYS OUT
+BTC (Bitcoin)
+Status: Orthrus IN — Price above 200-day MA
+Confidence: 84%
+Next 7 days: 81% probability STAYS IN
+What this means for YOUR next trade:
+“HOLD on SPY if you get in now (78% probability continues)”
+“STAY OUT of QQQ until momentum turns (currently negative)”
+“HOLD on BTC, don’t panic on dips (81% probability holds)”
+IF NOT LOGGED IN (show this):
+Heading: “See the 7-Day Market Forecast”
+Content:
+“Traders who use our system know what the market will do in the next 7 days.”
+Button: “Sign Up to See the Forecast”
+===== SECTION 5: CSV UPLOAD FORM =====
+Below forecast widget.
+Heading: “Stop Guessing. See Your Emotional Cost in Numbers.”
+Form fields:
+	•	CSV file upload input (drag-and-drop preferred)
+	•	Show example CSV format:
+symbol,entry_date,exit_date,entry_price,exit_price,size
+SPY,2026-06-20,2026-06-24,410.50,405.00,10
+BTC,2026-06-25,2026-07-02,42500,48000,0.5
+	•	Submit button: “Show me my numbers”
+	•	Note text: “No login required. See your results instantly.”
+After upload:
+	•	Show loading message: “Processing your trades… (1-2 minutes)”
+	•	Then display results card:
+Your Upload Results
+Trades processed: 28
+Emotional trades cost you: -$4,060
+System trades would have made: +$5,300
+Total gap: $9,360 left on the table
+[See your full breakdown] (this button requires signup)
+[Upload more trades]
+===== SECTION 6: EXISTING SECTIONS (KEEP BELOW) =====
+Below CSV upload, keep but preserve:
+	•	Platform section (moved to “Learn More” or “The Engine”)
+	•	Flow methodology (Ask-Read-Backtest-Decide)
+	•	Non-custodial explanation
+	•	Charon AI advisor
+	•	Access/signup section
+These sections should still exist but be pushed lower on the page (educational, not hero).
+===== TECHNICAL REQUIREMENTS =====
+Chart Library:
+	•	Use Chart.js (lightweight) or Recharts (if React preferred)
+	•	SPY example: June 20-28, 2026
+	•	Show OHLCV data as line chart of close prices
+	•	Mark trader entry: red X
+	•	Mark system entry: green X
+	•	Mark trader exit: red dot
+	•	Mark system exit: green dot
+	•	Highlight recovery area: light green shading between red exit and green exit
+Form Handling:
+	•	CSV file upload form (POST to /beta/emotional-decisions/upload endpoint)
+	•	Show loading state while processing
+	•	Display results on success
+	•	Friendly error messages on failure
+	•	Form should work even if backend not wired yet (for testing purposes)
+Responsive Design:
+	•	Mobile-first approach
+	•	Hero chart should stack or scale on small screens (not side-by-side if too narrow)
+	•	Metrics table should be scrollable on mobile
+	•	CSV upload form easy to use on mobile
+	•	All text readable on mobile (good line height, font size)
+	•	Forecast widget should be readable on all screen sizes
+Styling:
+	•	Dark theme (fits Obsidian Abyss brand)
+	•	Use existing ONYX font or similar
+	•	Consistent with current site design
+	•	Create new CSS file: emotion-product.css
+	•	All new styles in this file, don’t modify existing CSS
+No Breaking Changes:
+	•	Keep all existing pages (Platform, Flow, etc.)
+	•	Keep all existing navigation links
+	•	Just redesign the homepage (index.html)
+	•	Don’t touch member dashboard yet (that’s Week 3)
+===== FILE STRUCTURE =====
+obsidianabyss-site/
+├─ index.html (REDESIGN: new hero + 5 sections)
+├─ platform.html (keep, move down in nav)
+├─ flow.html (keep, move down in nav)
+├─ wallet.html (keep, move down in nav)
+├─ guide.html (keep)
+├─ access.html (keep)
+├─ css/
+│  ├─ main.css (don’t modify)
+│  └─ emotion-product.css (NEW: all new styles)
+├─ js/
+│  ├─ main.js (existing)
+│  └─ emotion-upload.js (NEW: CSV upload + results)
+└─ data/
+└─ backtests/ (keep existing)
+===== DELIVERABLES BY END OF WEEK 1 =====
+	•	Redesigned index.html with all 5 new sections
+	•	emotion-product.css with complete styling
+	•	emotion-upload.js with CSV upload form + results display
+	•	SPY example trade chart rendering correctly (both sides visible)
+	•	Metrics table mobile-responsive (no horizontal scroll if possible)
+	•	7-day forecast widget showing/hiding based on auth status
+	•	Existing sections preserved (Platform, Flow, etc. still accessible)
+	•	No console errors
+	•	Tested on desktop + mobile
+	•	Ready to merge to main branch (git push origin main)
+===== TESTING CHECKLIST =====
+Before submitting:
+	•	Hero section renders (chart visible, text readable)
+	•	Example card displays correctly with all fields
+	•	Metrics table responsive on mobile (scrolls if needed)
+	•	CSV upload form accepts .csv files
+	•	Forecast widget shows if logged in, hides if not
+	•	All existing nav links still work
+	•	No broken links or missing assets
+	•	Lighthouse score above 80
+	•	Mobile viewport works (no overflow, readable text)
+	•	Chart is side-by-side on desktop, stacks on mobile
+===== SUCCESS CRITERIA =====
+This week is done when:
+	1.	Homepage loads without errors
+	2.	Hero chart clearly shows $890 gap between emotional and system trades
+	3.	CSV upload form works and can submit (backend wiring happens Week 2)
+	4.	Responsive design looks good on mobile
+	5.	Existing site functionality preserved (can still navigate to other pages)
+	6.	No console errors or warnings
+Week 2 (Claude will do): Wire CSV upload to backend /upload endpoint
+===== CONTEXT & RESOURCES =====
+What this product does:
+Traders make emotional decisions they know are bad. Homepage proves this costs money ($X in dollars). Visitor uploads their trades. System shows their personal emotional cost. They sign up for member dashboard which shows weekly discipline trends + 7-day market forecast to help them remove emotion from next trades.
+Why this works:
+Showing “$890 left on table” is more powerful than any backtest. Traders will believe it because they KNOW they panic-sold.
+Key decisions already made:
+	1.	SPY June 20-28 is the hero example trade (entry $410, exit $405 panic vs $420 system)
+	2.	Start with simulated data on homepage (real trader data added later)
+	3.	CSV upload first (OAuth in V1)
+	4.	Orthrus only (all 3 engines added in V1)
+	5.	7-day forecast members-only (drives signup)
+===== GO BUILD =====
+This is the go-to-market. Show traders they’re emotional, they’ll believe you, they’ll sign up. Build Week 1. We wire the backend Week 2. Launch Week 4.
+You have everything you need. No blockers. Start now.
