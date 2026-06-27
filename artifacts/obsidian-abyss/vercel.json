@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "installCommand": "cd ../.. && npm install --legacy-peer-deps",
+  "installCommand": "cd ../.. && npm install",
   "buildCommand": "cd ../.. && npm run build -w @workspace/obsidian-abyss",
   "outputDirectory": "dist"
 }
