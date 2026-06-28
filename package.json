@@ -16,7 +16,7 @@
     "@gsap/react": "^2.0.4",
     "@studio-freight/lenis": "^1.0.42",
     "lucide-react": "^0.408.0",
-    "three": "^r128",
+    "three": "0.128.0",
     "@react-three/fiber": "^8.15.0",
     "@react-three/drei": "^9.88.0"
   },
@@ -25,7 +25,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/three": "^r128",
+    "@types/three": "0.128.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "tailwindcss": "^4",
