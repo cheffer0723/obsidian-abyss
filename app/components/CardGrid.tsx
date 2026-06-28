@@ -44,7 +44,7 @@ const cards = [
 ];
 
 export default function CardGrid() {
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
