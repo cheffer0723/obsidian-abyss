@@ -35,8 +35,8 @@ export default function ParticleBackground() {
       opacity: number;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * canvas!.width;
+        this.y = Math.random() * canvas!.height;
         this.vx = (Math.random() - 0.5) * 0.15;
         this.vy = (Math.random() - 0.5) * 0.15;
         this.radius = Math.random() * 1.5 + 0.5;
@@ -46,8 +46,8 @@ export default function ParticleBackground() {
       update() {
         this.x += this.vx;
         this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        if (this.x < 0 || this.x > canvas!.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas!.height) this.vy *= -1;
       }
 
       draw(ctx: CanvasRenderingContext2D) {
@@ -72,7 +72,7 @@ export default function ParticleBackground() {
 
     function animate() {
       ctx.fillStyle = 'rgba(10, 10, 15, 0.08)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, canvas!.width, canvas!.height);
 
       particles.forEach((p) => {
         p.update();
@@ -85,8 +85,8 @@ export default function ParticleBackground() {
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas!.width = window.innerWidth;
+      canvas!.height = window.innerHeight;
     };
 
     window.addEventListener('resize', handleResize);
@@ -100,3 +100,4 @@ export default function ParticleBackground() {
     />
   );
 }
+
