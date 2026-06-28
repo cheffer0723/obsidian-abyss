@@ -71,12 +71,12 @@ export default function ParticleBackground() {
     }
 
     function animate() {
-      ctx.fillStyle = 'rgba(10, 10, 15, 0.08)';
-      ctx.fillRect(0, 0, canvas!.width, canvas!.height);
+      ctx!.fillStyle = 'rgba(10, 10, 15, 0.08)';
+      ctx!.fillRect(0, 0, canvas!.width, canvas!.height);
 
       particles.forEach((p) => {
         p.update();
-        p.draw(ctx);
+        p.draw(ctx!);
       });
 
       requestAnimationFrame(animate);
