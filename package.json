@@ -17,8 +17,8 @@
     "@studio-freight/lenis": "^1.0.42",
     "lucide-react": "^0.408.0",
     "three": "^0.169.0",
-    "@react-three/fiber": "^8.15.0",
-    "@react-three/drei": "^9.88.0"
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/drei": "^10.7.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -32,3 +32,4 @@
     "typescript": "^5"
   }
 }
+
