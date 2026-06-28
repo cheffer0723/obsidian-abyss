@@ -1,0 +1,9 @@
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = ["node artifacts/api-server/build.mjs"]
+dependsOn = ["install"]
+
+[start]
+cmd = "node --enable-source-maps artifacts/api-server/dist/index.mjs"

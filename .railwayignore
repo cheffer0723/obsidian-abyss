@@ -1,0 +1,6 @@
+attached_assets
+artifacts/mockup-sandbox
+artifacts/obsidian-abyss
+.agents
+*.mov
+*.DS_Store
