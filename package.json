@@ -15,7 +15,7 @@
     "gsap": "^3.12.2",
     "@gsap/react": "^2.0.4",
     "@studio-freight/lenis": "^1.0.42",
-    "lucide-react": "^0.263.1",
+    "lucide-react": "^0.408.0",
     "three": "^r128",
     "@react-three/fiber": "^8.15.0",
     "@react-three/drei": "^9.88.0"
