@@ -5,11 +5,10 @@ import { DecodeText } from "../ui/decode-text";
 import { scrollToSection } from "@/lib/scroll-to";
 import {
   csvExample,
-  parseTradeCount,
-  simulateUpload,
   fmtMoney,
   type UploadResult,
 } from "@/lib/emotion-data";
+import { analyzeTradesFromCSV } from "@/lib/api-client";
 
 type Status = "idle" | "processing" | "done" | "error";
 
@@ -136,7 +135,7 @@ export function EmotionUpload() {
     [handleFile],
   );
 
-  const submit = useCallback(() => {
+  const submit = useCallback(async () => {
     if (!fileName) {
       setError("Choose a CSV file first.");
       setStatus("error");
@@ -149,16 +148,34 @@ export function EmotionUpload() {
     }
     setStatus("processing");
     setError(null);
-    window.setTimeout(() => {
-      const count = parseTradeCount(textRef.current);
-      if (count <= 0) {
+
+    try {
+      const response = await analyzeTradesFromCSV(textRef.current, "website-upload");
+      const summary = response.analysis?.summary;
+      if (!response.ok || !summary) {
+        setError(response.error || "The API could not analyze that file.");
+        setStatus("error");
+        return;
+      }
+      if (summary.totalTrades <= 0) {
         setError("No trades found in that file. Check the format below.");
         setStatus("error");
         return;
       }
-      setResult(simulateUpload(count));
+
+      const emotionalCost = Math.round(summary.totalEmotionalCost);
+      const systemGain = Math.round(summary.potentialGain || summary.currencyGain);
+      setResult({
+        trades: summary.totalTrades,
+        emotionalCost: -emotionalCost,
+        systemGain,
+        totalGap: emotionalCost + systemGain,
+      });
       setStatus("done");
-    }, 1500);
+    } catch {
+      setError("The live API is unreachable. Try again shortly.");
+      setStatus("error");
+    }
   }, [fileName, fileReady]);
 
   const reset = useCallback(() => {
@@ -255,7 +272,7 @@ export function EmotionUpload() {
                       <span className="text-primary">browse</span>
                     </span>
                     <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/35">
-                      .csv &middot; processed in your browser
+                      .csv &middot; processed by live Railway API
                     </span>
                   </>
                 )}
