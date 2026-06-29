@@ -2,6 +2,12 @@
   "name": "workspace",
   "version": "0.0.0",
   "license": "MIT",
+  "private": true,
+  "packageManager": "npm@10.8.2",
+  "engines": {
+    "node": ">=20 <21",
+    "npm": ">=10"
+  },
   "workspaces": [
     "artifacts/*",
     "lib/*",
@@ -10,10 +16,13 @@
   ],
   "scripts": {
     "build": "npm run typecheck && npm run --workspaces --if-present build",
+    "build:frontend": "npm run build --workspace=@workspace/obsidian-abyss",
+    "build:api": "npm run build --workspace=@workspace/api-server",
+    "start:frontend": "npm run serve --workspace=@workspace/obsidian-abyss -- --host 0.0.0.0 --port ${PORT:-5173}",
+    "start:api": "npm run start --workspace=@workspace/api-server",
     "typecheck:libs": "tsc --build",
     "typecheck": "npm run typecheck:libs && npm run --workspaces --if-present typecheck"
   },
-  "private": true,
   "devDependencies": {
     "prettier": "^3.8.4",
     "typescript": "~5.9.3"
