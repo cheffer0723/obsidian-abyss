@@ -3,7 +3,7 @@
  * Calls Railway-hosted emotion detection endpoints
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://emotion-detection-api-production.up.railway.app';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://obsidianabyss-api-production.up.railway.app';
 
 export interface EmotionalAnalysisResult {
   ok: boolean;

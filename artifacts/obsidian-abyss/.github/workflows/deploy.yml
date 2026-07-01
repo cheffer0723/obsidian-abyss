@@ -49,9 +49,10 @@ jobs:
 
       - name: Build
         env:
-          BASE_PATH: /obsidian-abyss/
-          GITHUB_PAGES_BASE: /obsidian-abyss/
-          VITE_API_URL: https://emotion-detection-api-production.up.railway.app
+          PORT: 5173
+          BASE_PATH: /
+          GITHUB_PAGES_BASE: /
+          VITE_API_URL: https://obsidianabyss-api-production.up.railway.app
         run: pnpm build
 
       - name: Upload artifact

@@ -44,7 +44,7 @@ git push origin main
 GitHub Actions will automatically:
 1. Build the application with `npm run build`
 2. Deploy to GitHub Pages using the `gh-pages` action
-3. Make it available at: `https://cheffer0723.github.io/obsidian-abyss/`
+3. Make it available at: `https://www.obsidianabyss.com/`
 
 **Important:** GitHub Pages deployment happens automatically on every push to `main`. No manual configuration needed.
 
@@ -52,12 +52,12 @@ GitHub Actions will automatically:
 
 The application automatically uses:
 - `VITE_API_URL` - Backend API URL (set to Railway endpoint in GitHub Actions)
-- `BASE_PATH` - GitHub Pages base path (set to `/obsidian-abyss/` in GitHub Actions)
+- `BASE_PATH` - GitHub Pages base path (set to `/` in GitHub Actions for the custom domain)
 
 **For local development:**
 ```bash
 # .env.local (create this file)
-VITE_API_URL=https://emotion-detection-api-production.up.railway.app
+VITE_API_URL=https://obsidianabyss-api-production.up.railway.app
 BASE_PATH=/
 ```
 
